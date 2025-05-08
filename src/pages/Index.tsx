@@ -7,9 +7,17 @@ import TestimonialCard from '@/components/TestimonialCard';
 import FaqAccordion from '@/components/FaqAccordion';
 import FlowStep from '@/components/FlowStep';
 import Logo from '@/components/Logo';
+import ChatMockup from '@/components/ChatMockup';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { CalendarClock, MessageSquare, Shield, Zap, BookOpen } from 'lucide-react';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 // Mock images - will be replaced with actual uploads 
 const mockChatflowImage = "/lovable-uploads/e257a4f3-ebd8-4c4f-bb49-38a3ccfedea3.png";
@@ -43,6 +51,26 @@ const Index = () => {
               </div>
             </div>
             
+            <div className="w-full lg:w-1/2 z-10">
+              <div className="premium-card bg-white/5 backdrop-blur-sm pt-6">
+                <h3 className="text-center text-white font-semibold mb-4">24/7 AI Follow-Up on Messaging Apps</h3>
+                <Carousel className="w-full">
+                  <CarouselContent>
+                    <CarouselItem>
+                      <ChatMockup platform="whatsapp" />
+                    </CarouselItem>
+                    <CarouselItem>
+                      <ChatMockup platform="telegram" />
+                    </CarouselItem>
+                    <CarouselItem>
+                      <ChatMockup platform="slack" />
+                    </CarouselItem>
+                  </CarouselContent>
+                  <CarouselPrevious className="left-2" />
+                  <CarouselNext className="right-2" />
+                </Carousel>
+              </div>
+            </div>
           </div>
         </div>
       </Section>
