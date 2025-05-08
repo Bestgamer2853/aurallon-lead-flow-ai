@@ -1,8 +1,8 @@
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Section from '@/components/Section';
 import SectionTitle from '@/components/SectionTitle';
-import FeatureCard from '@/components/FeatureCard';
 import TestimonialCard from '@/components/TestimonialCard';
 import FaqAccordion from '@/components/FaqAccordion';
 import FlowStep from '@/components/FlowStep';
@@ -10,7 +10,15 @@ import Logo from '@/components/Logo';
 import ChatMockup from '@/components/ChatMockup';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import { CalendarClock, MessageSquare, Shield, Zap, BookOpen } from 'lucide-react';
+import { 
+  MessageSquare, 
+  BookOpen, 
+  Zap, 
+  CalendarClock, 
+  Shield, 
+  UserCheck, 
+  CloudCog 
+} from 'lucide-react';
 import {
   Carousel,
   CarouselContent,
@@ -19,8 +27,6 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-// Mock images - will be replaced with actual uploads 
-const mockChatflowImage = "/lovable-uploads/e257a4f3-ebd8-4c4f-bb49-38a3ccfedea3.png";
 const Index = () => {
   return <div className="min-h-screen bg-aurallon-deep-purple antialiased overflow-x-hidden">
       <Navbar />
@@ -43,10 +49,11 @@ const Index = () => {
                     Schedule Your Private Demo
                   </Button>
                 </a>
-                <Button className="secondary-btn" onClick={() => document.getElementById('features')?.scrollIntoView({
-                behavior: 'smooth'
-              })}>
-                  See It in Action
+                <Button 
+                  onClick={() => document.getElementById('how-it-works')?.scrollIntoView({behavior: 'smooth'})}
+                  className="bg-purple-gradient text-white py-3 px-6 rounded-md font-medium hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300"
+                >
+                  Explore the Workflow
                 </Button>
               </div>
             </div>
@@ -88,33 +95,75 @@ const Index = () => {
         </div>
       </Section>
 
-      {/* Features Section */}
-      <Section id="features" className="bg-aurallon-dark-purple">
-        <SectionTitle title="Engineered for Elite Real Estate Teams" center />
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <FeatureCard title="24/7 Lead Capture & Follow-Up" description="Never miss a lead again. Aurallon's AI concierge engages prospects instantly, any time of day or night, creating a seamless experience that converts." icon={<MessageSquare className="w-6 h-6 text-aurallon-light-purple" />} />
-          <FeatureCard title="RAG-Powered Expert Responses" description="Our AI leverages your knowledge base to deliver accurate, personalized information about properties and services, maintaining your brand voice." icon={<BookOpen className="w-6 h-6 text-aurallon-light-purple" />} />
-          <FeatureCard title="Intelligent Data Enrichment" description="Automatically enrich lead profiles with additional data points and preferences, creating comprehensive profiles for your team." icon={<Zap className="w-6 h-6 text-aurallon-light-purple" />} />
-          <FeatureCard title="One-Click IST-Safe Scheduling" description="Turn conversations into appointments with our integrated Calendly scheduling that respects IST (Inside Sales Team) routing rules." icon={<CalendarClock className="w-6 h-6 text-aurallon-light-purple" />} />
-          <FeatureCard className="md:col-span-2 lg:col-span-1" title="Real-Time CRM Dashboard & Alerts" description="Get instant notifications when high-value leads engage, with all conversations automatically logged to your CRM of choice." icon={<Shield className="w-6 h-6 text-aurallon-light-purple" />} />
-        </div>
-      </Section>
-
-      {/* How It Works Section */}
+      {/* How It Works Section - REBUILT */}
       <Section id="how-it-works" className="bg-aurallon-dark-purple">
-        <SectionTitle title="How Aurallon Works" subtitle="Our AI concierge integrates seamlessly with your existing workflow, requiring minimal setup while delivering maximum impact." />
+        <SectionTitle 
+          title="How Aurallon Works" 
+          subtitle={
+            <span>
+              Aurallon runs entirely in the cloud—no downloads, no servers, just instant setup and results.
+              <br />Our AI concierge integrates seamlessly with your existing workflow, requiring minimal setup while delivering maximum impact.
+            </span>
+          } 
+        />
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div className="space-y-8">
-            <FlowStep index={1} title="Multi-Channel Lead Contact" description="Leads reach out through their preferred channel—Telegram, WhatsApp, or Slack—and are instantly greeted by your branded AI concierge." icon={<MessageSquare className="w-6 h-6 text-aurallon-light-purple" />} />
-            <FlowStep index={2} title="AI-Powered Intent Classification" description="Our system identifies lead intent, urgency, and property preferences through natural conversation." icon={<Zap className="w-6 h-6 text-aurallon-light-purple" />} />
-            <FlowStep index={3} title="RAG-Enhanced Responses" description="Using your listing data and FAQs, the AI provides accurate, detailed information that builds trust and qualifies leads." icon={<BookOpen className="w-6 h-6 text-aurallon-light-purple" />} isLast={true} />
+        <div className="space-y-8 max-w-4xl mx-auto">
+          <FlowStep 
+            index={1} 
+            title="24/7 Lead Capture & Follow-Up" 
+            description="Aurallon's AI concierge engages leads instantly across Telegram, WhatsApp, and Slack—ensuring you never miss an opportunity, day or night." 
+            icon={<MessageSquare className="w-6 h-6 text-aurallon-light-purple" />} 
+          />
+          
+          <FlowStep 
+            index={2} 
+            title="RAG-Powered Expert Responses" 
+            description="The AI uses retrieval-augmented generation (RAG) to pull from your listings and FAQs, delivering precise, brand-aligned answers." 
+            icon={<BookOpen className="w-6 h-6 text-aurallon-light-purple" />} 
+          />
+          
+          <FlowStep 
+            index={3} 
+            title="Intelligent Data Enrichment" 
+            description="Automatically builds rich lead profiles with preferences, location, and firmographics in real time." 
+            icon={<Zap className="w-6 h-6 text-aurallon-light-purple" />} 
+          />
+          
+          <FlowStep 
+            index={4} 
+            title="Timezone-Safe Scheduling" 
+            description="Converts appointment times to each lead's local timezone, syncing directly with your calendar for frictionless booking." 
+            icon={<CalendarClock className="w-6 h-6 text-aurallon-light-purple" />} 
+          />
+          
+          <FlowStep 
+            index={5} 
+            title="Real-Time CRM Sync & Alerts" 
+            description="Every conversation is logged in your CRM, and your team receives instant notifications for high-intent leads." 
+            icon={<Shield className="w-6 h-6 text-aurallon-light-purple" />} 
+          />
+          
+          <FlowStep 
+            index={6} 
+            title="Seamless Agent Handoff" 
+            description="Your team gets the full conversation context when a lead is ready for a human follow-up." 
+            icon={<UserCheck className="w-6 h-6 text-aurallon-light-purple" />} 
+            isLast={true}
+          />
+        </div>
+
+        {/* Cloud infrastructure callout */}
+        <div className="mt-12 premium-card max-w-4xl mx-auto">
+          <div className="flex gap-3 items-center mb-4">
+            <div className="p-3 bg-aurallon-light-purple/20 rounded-full">
+              <CloudCog className="w-6 h-6 text-aurallon-light-purple" />
+            </div>
+            <h3 className="font-semibold text-white text-xl">Cloud-Powered. Always Available.</h3>
           </div>
-          <div className="space-y-8">
-            <FlowStep index={4} title="Automatic Scheduling & CRM Update" description="Qualified leads are offered convenient appointment times, with details automatically synced to your calendar and CRM." icon={<CalendarClock className="w-6 h-6 text-aurallon-light-purple" />} />
-            <FlowStep index={5} title="Agent Notification & Handoff" description="Your team receives instant alerts with full conversation context, ensuring smooth human takeover when needed." icon={<Shield className="w-6 h-6 text-aurallon-light-purple" />} isLast={true} />
-          </div>
+          <p className="text-white/70 text-lg">
+            Aurallon's infrastructure runs 24/7 in secure cloud environments, enabling easy setup and
+            eliminating maintenance headaches. No technical expertise required.
+          </p>
         </div>
       </Section>
 
@@ -185,10 +234,10 @@ const Index = () => {
             <div>
               <h4 className="font-semibold text-white mb-4">Features</h4>
               <ul className="space-y-2">
-                <li><a href="#features" className="text-white/60 hover:text-white transition-colors">Lead Capture</a></li>
-                <li><a href="#features" className="text-white/60 hover:text-white transition-colors">RAG Technology</a></li>
-                <li><a href="#features" className="text-white/60 hover:text-white transition-colors">Data Enrichment</a></li>
-                <li><a href="#features" className="text-white/60 hover:text-white transition-colors">Smart Scheduling</a></li>
+                <li><a href="#how-it-works" className="text-white/60 hover:text-white transition-colors">Lead Capture</a></li>
+                <li><a href="#how-it-works" className="text-white/60 hover:text-white transition-colors">RAG Technology</a></li>
+                <li><a href="#how-it-works" className="text-white/60 hover:text-white transition-colors">Data Enrichment</a></li>
+                <li><a href="#how-it-works" className="text-white/60 hover:text-white transition-colors">Timezone-Safe Scheduling</a></li>
               </ul>
             </div>
             
@@ -240,4 +289,5 @@ const Index = () => {
       </footer>
     </div>;
 };
+
 export default Index;

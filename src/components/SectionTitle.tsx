@@ -3,8 +3,8 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 
 interface SectionTitleProps {
-  title: React.ReactNode; // Changed from string to ReactNode to support JSX
-  subtitle?: string;
+  title: React.ReactNode;
+  subtitle?: React.ReactNode; // Changed from string to ReactNode to support JSX
   center?: boolean;
   className?: string;
 }
