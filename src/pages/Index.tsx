@@ -3,17 +3,13 @@ import React from 'react';
 import Navbar from '@/components/Navbar';
 import Section from '@/components/Section';
 import SectionTitle from '@/components/SectionTitle';
-import FeatureCard from '@/components/FeatureCard';
 import TestimonialCard from '@/components/TestimonialCard';
 import FaqAccordion from '@/components/FaqAccordion';
 import FlowStep from '@/components/FlowStep';
 import Logo from '@/components/Logo';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import { CalendarClock, MessageSquare, Shield, Zap, BookOpen } from 'lucide-react';
-
-// Mock images - will be replaced with actual uploads 
-const mockChatflowImage = "/lovable-uploads/e257a4f3-ebd8-4c4f-bb49-38a3ccfedea3.png";
+import { CalendarClock, MessageSquare, Shield, Zap, BookOpen, Cloud } from 'lucide-react';
 
 const Index = () => {
   return (
@@ -38,7 +34,7 @@ const Index = () => {
                     Schedule Your Private Demo
                   </Button>
                 </a>
-                <Button className="secondary-btn" onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}>
+                <Button className="secondary-btn" onClick={() => document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth' })}>
                   See It in Action
                 </Button>
               </div>
@@ -48,7 +44,7 @@ const Index = () => {
                 <div className="absolute -inset-0.5 bg-purple-gradient rounded-xl blur opacity-30"></div>
                 <div className="relative overflow-hidden rounded-xl border border-white/10 bg-aurallon-deep-purple/40 backdrop-blur-sm p-2">
                   <img 
-                    src={mockChatflowImage} 
+                    src="/lovable-uploads/e257a4f3-ebd8-4c4f-bb49-38a3ccfedea3.png" 
                     alt="Aurallon AI Chat Interface" 
                     className="w-full h-auto rounded-md"
                   />
@@ -71,43 +67,6 @@ const Index = () => {
               <div className="h-3 w-full bg-white/20 rounded"></div>
             </div>
           ))}
-        </div>
-      </Section>
-
-      {/* Features Section */}
-      <Section id="features" className="bg-aurallon-dark-purple">
-        <SectionTitle 
-          title="Engineered for Elite Real Estate Teams" 
-          center
-        />
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <FeatureCard 
-            title="24/7 Lead Capture & Follow-Up"
-            description="Never miss a lead again. Aurallon's AI concierge engages prospects instantly, any time of day or night, creating a seamless experience that converts."
-            icon={<MessageSquare className="w-6 h-6 text-aurallon-light-purple" />}
-          />
-          <FeatureCard 
-            title="RAG-Powered Expert Responses"
-            description="Our AI leverages your knowledge base to deliver accurate, personalized information about properties and services, maintaining your brand voice."
-            icon={<BookOpen className="w-6 h-6 text-aurallon-light-purple" />}
-          />
-          <FeatureCard 
-            title="Intelligent Data Enrichment"
-            description="Automatically enrich lead profiles with additional data points and preferences, creating comprehensive profiles for your team."
-            icon={<Zap className="w-6 h-6 text-aurallon-light-purple" />}
-          />
-          <FeatureCard 
-            title="One-Click IST-Safe Scheduling"
-            description="Turn conversations into appointments with our integrated Calendly scheduling that respects IST (Inside Sales Team) routing rules."
-            icon={<CalendarClock className="w-6 h-6 text-aurallon-light-purple" />}
-          />
-          <FeatureCard 
-            className="md:col-span-2 lg:col-span-1"
-            title="Real-Time CRM Dashboard & Alerts"
-            description="Get instant notifications when high-value leads engage, with all conversations automatically logged to your CRM of choice."
-            icon={<Shield className="w-6 h-6 text-aurallon-light-purple" />}
-          />
         </div>
       </Section>
 
@@ -152,6 +111,13 @@ const Index = () => {
               title="Agent Notification & Handoff"
               description="Your team receives instant alerts with full conversation context, ensuring smooth human takeover when needed."
               icon={<Shield className="w-6 h-6 text-aurallon-light-purple" />}
+              isLast={false}
+            />
+            <FlowStep 
+              index={6}
+              title="Aurallon Works in the Cloud"
+              description="Aurallon runs fully in the cloud—zero hosting or maintenance required."
+              icon={<Cloud className="w-6 h-6 text-aurallon-light-purple" />}
               isLast={true}
             />
           </div>
@@ -171,24 +137,24 @@ const Index = () => {
             author="Sarah Johnson"
             role="Team Lead"
             company="Luxe Realty Partners"
-            image="/placeholder.svg"
-            logo="/placeholder.svg"
+            image=""
+            logo=""
           />
           <TestimonialCard
             quote="The AI's ability to answer complex property questions accurately has been game-changing. Our team only steps in when truly needed."
             author="Michael Chen"
             role="Principal Broker"
             company="Elevate Property Group"
-            image="/placeholder.svg"
-            logo="/placeholder.svg"
+            image=""
+            logo=""
           />
           <TestimonialCard
             quote="Setup took 20 minutes, and we were capturing leads that same day. The ROI has been incredible for our boutique agency."
             author="Amanda Rodriguez"
             role="Marketing Director"
             company="Horizon Homes"
-            image="/placeholder.svg"
-            logo="/placeholder.svg"
+            image=""
+            logo=""
           />
         </div>
       </Section>
@@ -227,7 +193,7 @@ const Index = () => {
             Join elite real estate teams using Aurallon to convert more leads with less effort.
           </p>
           <a href="https://calendly.com/aurallonbiz" className="inline-block" target="_blank" rel="noopener noreferrer">
-            <Button className="primary-btn !bg-white !text-aurallon-light-purple hover:!bg-white/90">
+            <Button className="primary-btn !bg-white !text-aurallon-light-purple hover:!bg-white/90 text-lg py-4 px-8 shadow-lg font-bold">
               Book My Exclusive Demo
             </Button>
           </a>
@@ -252,10 +218,10 @@ const Index = () => {
             <div>
               <h4 className="font-semibold text-white mb-4">Features</h4>
               <ul className="space-y-2">
-                <li><a href="#features" className="text-white/60 hover:text-white transition-colors">Lead Capture</a></li>
-                <li><a href="#features" className="text-white/60 hover:text-white transition-colors">RAG Technology</a></li>
-                <li><a href="#features" className="text-white/60 hover:text-white transition-colors">Data Enrichment</a></li>
-                <li><a href="#features" className="text-white/60 hover:text-white transition-colors">Smart Scheduling</a></li>
+                <li><a href="#how-it-works" className="text-white/60 hover:text-white transition-colors">Lead Capture</a></li>
+                <li><a href="#how-it-works" className="text-white/60 hover:text-white transition-colors">RAG Technology</a></li>
+                <li><a href="#how-it-works" className="text-white/60 hover:text-white transition-colors">Data Enrichment</a></li>
+                <li><a href="#how-it-works" className="text-white/60 hover:text-white transition-colors">Smart Scheduling</a></li>
               </ul>
             </div>
             
