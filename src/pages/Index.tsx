@@ -132,7 +132,7 @@ const Index = () => {
             Join elite real estate teams using Aurallon to convert more leads with less effort.
           </p>
           <a href="https://calendly.com/aurallonbiz" className="inline-block" target="_blank" rel="noopener noreferrer">
-            <Button className="primary-btn !bg-white !text-aurallon-light-purple hover:!bg-white/90">
+            <Button variant="cta" size="xl" className="font-bold">
               Book My Exclusive Demo
             </Button>
           </a>
